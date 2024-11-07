@@ -12,17 +12,10 @@ import got from 'got';
 import wait from 'wait';
 
 
-import fs from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-import * as path from 'path';
 
 clear()
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
-let earphonePath = "./assets/earphone.jpeg"
 
 
 const data = {
@@ -57,7 +50,7 @@ const card = boxen(
     }
 )
 
-//const image = await got( "https://upload.wikimedia.org/wikipedia/en/e/eb/Porter_Robinson_-_Worlds.jpg").buffer();
+const earphoneImg = await got( "https://github.com/fbagursk/npx-card/blob/main/assets/earphone.jpeg?raw=true").buffer();
 
 
 const options = {
@@ -74,8 +67,12 @@ const options = {
         {
             name: "| an earphone?",
             value: async () => {
-                //console.log(await terminalImage.buffer(image, {width:38}));
-                console.log(await terminalImage.file(earphonePath, {width:38}))
+                try {
+                    console.log(await terminalImage.buffer(earphoneImg, {width:38}));
+                } catch (err) {
+                    console.log(err);
+                }
+
                 console.log("WARNING: DO NOT ACCEPT THE EARPHONE. ")
                 console.log('HE CANNOT STOP TALKING ABOUT HIS MUSIC')
             

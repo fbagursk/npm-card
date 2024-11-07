@@ -1,11 +1,11 @@
 {
   "name": "fbagursk",
-  "version": "1.1.2",
+  "version": "1.1.6",
   "description": "my business card",
   "main": "index.js",
   "type": "module",
   "bin": "./index.js",
-  "files": ["assets/earphone.jpeg"],
+  "files": [],
   "scripts": {
     "setup": "npm install",
     "start": "node index.js"
